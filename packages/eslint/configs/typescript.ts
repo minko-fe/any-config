@@ -69,6 +69,7 @@ export const typescriptCore = tseslint.config({
     '@typescript-eslint/semi': 'off',
     '@typescript-eslint/triple-slash-reference': 'off',
     'no-restricted-syntax': 'off',
+    'no-var': 'off',
     'prefer-const': ['warn', { destructuring: 'all', ignoreReadBeforeAssign: true }],
   },
 }) as Linter.Config[]

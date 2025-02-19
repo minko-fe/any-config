@@ -1,5 +1,10 @@
 # @minko-fe/eslint-config
 
+## 4.1.3
+### Patch Changes
+
+- allow var
+
 ## 4.1.2
 ### Patch Changes
 

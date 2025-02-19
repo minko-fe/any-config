@@ -1,6 +1,6 @@
 {
   "name": "@minko-fe/eslint-config",
-  "version": "4.1.2",
+  "version": "4.1.3",
   "description": "eslint-config",
   "type": "module",
   "repository": {
