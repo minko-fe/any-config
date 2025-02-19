@@ -69,6 +69,7 @@ export const GLOB_EXCLUDE = /** @type {const} */ [
   '**/.vite-inspect',
   '**/.astro',
   '**/.svelte-kit',
+  '**/.react-router',
 
   '**/CHANGELOG*.md',
   '**/*.min.*',

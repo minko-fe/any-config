@@ -23,6 +23,8 @@ export const markdown: Linter.Config[] = [
       'no-undef': 'off',
       'no-unused-expressions': 'off',
       'no-unused-vars': 'off',
+      'react/jsx-no-comment-textnodes': 'off',
+      'react/jsx-no-undef': 'off',
       'unused-imports/no-unused-imports': 'off',
       'unused-imports/no-unused-vars': 'off',
     },

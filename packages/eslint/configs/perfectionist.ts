@@ -32,7 +32,7 @@ export const sortImports: Linter.Config[] = [
             'object',
             'unknown',
           ],
-          internalPattern: ['~/**', '@/**', '#**'],
+          internalPattern: ['^[~@#]/.*'],
           newlinesBetween: 'never',
           order: 'asc',
           type: 'natural',
