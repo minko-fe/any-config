@@ -1,5 +1,10 @@
 # @minko-fe/prettier-config
 
+## 2.2.5
+### Patch Changes
+
+- fix: vue prettier conflict
+
 ## 2.2.4
 ### Patch Changes
 

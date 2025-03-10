@@ -6,6 +6,7 @@ module.exports = {
   bracketSpacing: true,
   embeddedLanguageFormatting: 'auto',
   endOfLine: 'auto',
+  htmlWhitespaceSensitivity: 'ignore',
   jsxSingleQuote: true,
   overrides: [
     {

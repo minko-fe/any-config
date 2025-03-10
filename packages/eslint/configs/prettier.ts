@@ -6,6 +6,7 @@ import { interopDefault } from '../utils'
 
 const rules = { ...pluginPrettierRecommended.rules }
 delete rules['vue/html-self-closing']
+delete rules['vue/html-closing-bracket-newline']
 
 export const prettier = (): Linter.Config[] => [
   {

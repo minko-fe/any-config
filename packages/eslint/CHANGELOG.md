@@ -1,5 +1,12 @@
 # @minko-fe/eslint-config
 
+## 4.2.1
+### Patch Changes
+
+- fix: vue prettier conflict
+- Updated dependencies
+  - @minko-fe/prettier-config@2.2.5
+
 ## 4.2.0
 ### Minor Changes
 
