@@ -2,7 +2,7 @@ import { type Linter } from 'eslint'
 import { GLOB_SRC } from '../globs'
 import { pluginPerfectionist } from '../plugins'
 
-export const sortImports: Linter.Config[] = [
+export const sortImports = (): Linter.Config[] => [
   {
     plugins: {
       perfectionist: pluginPerfectionist,
@@ -49,7 +49,7 @@ export const sortImports: Linter.Config[] = [
   },
 ]
 
-export const sortObjects: Linter.Config[] = [
+export const sortObjects = (): Linter.Config[] => [
   {
     files: [GLOB_SRC],
     plugins: {

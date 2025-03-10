@@ -1,20 +1,9 @@
-import { type Linter } from 'eslint'
-import { getPackageInfoSync } from 'local-pkg'
-import process from 'node:process'
+import { type ESLint, type Linter } from 'eslint'
 import { GLOB_VUE } from '../globs'
 import { parserVue, pluginVue, tseslint } from '../plugins'
 import { typescriptCore } from './typescript'
 
-export function getVueVersion() {
-  const pkg = getPackageInfoSync('vue', { paths: [process.cwd()] })
-  if (pkg && typeof pkg.version === 'string' && !Number.isNaN(+pkg.version[0])) {
-    return +pkg.version[0]
-  }
-  return 3
-}
-const isVue3 = getVueVersion() === 3
-
-export const reactivityTransform: Linter.Config[] = [
+const reactivityTransform: Linter.Config[] = [
   {
     languageOptions: {
       globals: {
@@ -36,67 +25,21 @@ export const reactivityTransform: Linter.Config[] = [
   },
 ]
 
-const vueCustomRules: Linter.RulesRecord = {
-  'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
-  'vue/custom-event-name-casing': ['error', 'camelCase'],
-  'vue/eqeqeq': ['error', 'smart'],
-  'vue/html-self-closing': [
-    'error',
-    {
-      html: {
-        component: 'always',
-        normal: 'always',
-        void: 'any',
-      },
-      math: 'always',
-      svg: 'always',
-    },
-  ],
-  'vue/max-attributes-per-line': 'off',
+const recommendedRules = pluginVue.configs['flat/recommended']
+  .map((c) => c.rules)
+  .reduce((acc, c) => ({ ...acc, ...c }), {}) as any
 
-  'vue/multi-word-component-names': 'off',
-  'vue/no-constant-condition': 'warn',
-  'vue/no-empty-pattern': 'off',
-  'vue/no-loss-of-precision': 'error',
-  'vue/no-unused-refs': 'error',
-  'vue/no-useless-v-bind': 'error',
+const vueTs: Linter.Config[] = typescriptCore
+  .filter((config) => config.name !== 'typescript-eslint/base')
+  .map((config) => {
+    return {
+      ...config,
+      files: [GLOB_VUE],
+    }
+  })
 
-  'vue/no-v-html': 'off',
-  'vue/object-shorthand': [
-    'error',
-    'always',
-    {
-      avoidQuotes: true,
-      ignoreConstructors: false,
-    },
-  ],
-  'vue/one-component-per-file': 'off',
-  'vue/padding-line-between-blocks': ['error', 'always'],
-  'vue/prefer-template': 'error',
-  'vue/require-default-prop': 'off',
-  'vue/require-prop-types': 'off',
-  'vue/singleline-html-element-content-newline': 'off',
-}
-
-const vue3Rules: Linter.RulesRecord = {
-  ...pluginVue.configs.base.rules,
-  ...pluginVue.configs['vue3-essential'].rules,
-  ...pluginVue.configs['vue3-strongly-recommended'].rules,
-  ...pluginVue.configs['vue3-recommended'].rules,
-} as Linter.RulesRecord
-
-const vue2Rules: Linter.RulesRecord = {
-  ...pluginVue.configs.base.rules,
-  ...pluginVue.configs.essential.rules,
-  ...pluginVue.configs['strongly-recommended'].rules,
-  ...pluginVue.configs.recommended.rules,
-} as Linter.RulesRecord
-
-export const vue: Linter.Config[] = [
-  ...(tseslint.config({
-    extends: typescriptCore as any[],
-    files: [GLOB_VUE],
-  }) as any),
+export const vue = (): Linter.Config[] => [
+  ...vueTs,
   {
     files: [GLOB_VUE],
     languageOptions: {
@@ -106,18 +49,57 @@ export const vue: Linter.Config[] = [
           jsx: true,
         },
         extraFileExtensions: ['.vue'],
-        parser: '@typescript-eslint/parser',
+        parser: tseslint.parser,
         sourceType: 'module',
       },
     },
     plugins: {
-      '@typescript-eslint': tseslint.plugin,
+      '@typescript-eslint': tseslint.plugin as ESLint.Plugin,
       'vue': pluginVue,
     },
     processor: pluginVue.processors['.vue'],
     rules: {
-      ...(isVue3 ? vue3Rules : vue2Rules),
-      ...vueCustomRules,
+      ...recommendedRules,
+
+      'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
+      'vue/custom-event-name-casing': ['error', 'camelCase'],
+      'vue/eqeqeq': ['error', 'smart'],
+      'vue/html-self-closing': [
+        'error',
+        {
+          html: {
+            component: 'always',
+            normal: 'always',
+            void: 'any',
+          },
+          math: 'always',
+          svg: 'always',
+        },
+      ],
+
+      'vue/max-attributes-per-line': 'off',
+      'vue/multi-word-component-names': 'off',
+      'vue/no-constant-condition': 'warn',
+      'vue/no-empty-pattern': 'error',
+      'vue/no-loss-of-precision': 'error',
+      'vue/no-unused-refs': 'error',
+
+      'vue/no-useless-v-bind': 'error',
+      'vue/no-v-html': 'off',
+      'vue/object-shorthand': [
+        'error',
+        'always',
+        {
+          avoidQuotes: true,
+          ignoreConstructors: false,
+        },
+      ],
+      'vue/one-component-per-file': 'off',
+      'vue/padding-line-between-blocks': ['error', 'always'],
+      'vue/prefer-template': 'error',
+      'vue/require-default-prop': 'off',
+      'vue/require-prop-types': 'off',
+      'vue/singleline-html-element-content-newline': 'off',
     },
   },
   ...reactivityTransform,

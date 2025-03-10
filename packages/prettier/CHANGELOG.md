@@ -1,5 +1,10 @@
 # @minko-fe/prettier-config
 
+## 2.2.4
+### Patch Changes
+
+- fix: vue support
+
 ## 2.2.3
 ### Patch Changes
 

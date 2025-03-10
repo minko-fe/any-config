@@ -1,5 +1,15 @@
 # @minko-fe/eslint-config
 
+## 4.2.0
+### Minor Changes
+
+- update deps and fix vue/svelte eslint error
+
+### Patch Changes
+
+- Updated dependencies
+  - @minko-fe/prettier-config@2.2.4
+
 ## 4.1.3
 ### Patch Changes
 

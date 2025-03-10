@@ -2,7 +2,7 @@ import { type Linter } from 'eslint'
 import { GLOB_MARKDOWN, GLOB_SRC, GLOB_SRC_EXT } from '../globs'
 import { pluginAntfu, pluginImport } from '../plugins'
 
-export const imports: Linter.Config[] = [
+export const imports = (): Linter.Config[] => [
   {
     plugins: {
       antfu: pluginAntfu,

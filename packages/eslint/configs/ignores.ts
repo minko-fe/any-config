@@ -39,5 +39,5 @@ function gitignore(options: FlatGitignoreOptions = {}): FlatConfigItem {
   }
 }
 
-export const ignores: Linter.Config[] = [{ ignores: GLOB_EXCLUDE }]
+export const ignores = (): Linter.Config[] => [{ ignores: GLOB_EXCLUDE }]
 export const gitignores: FlatConfigItem[] = [{ ignores: gitignore().ignores }]

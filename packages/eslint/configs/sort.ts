@@ -1,7 +1,7 @@
 import { type Linter } from 'eslint'
 import { GLOB_PACKAGEJSON, GLOB_TSCONFIG } from '../globs'
 
-export const sortPackageJson: Linter.Config[] = [
+export const sortPackageJson = (): Linter.Config[] => [
   {
     files: [GLOB_PACKAGEJSON],
     rules: {
@@ -82,7 +82,7 @@ export const sortPackageJson: Linter.Config[] = [
   },
 ]
 
-export const sortTsconfig: Linter.Config[] = [
+export const sortTsconfig = (): Linter.Config[] => [
   {
     files: GLOB_TSCONFIG,
     rules: {

@@ -15,8 +15,8 @@ export const pluginMarkdown = interopDefault(_pluginMarkdown)
 import * as _pluginUnicorn from 'eslint-plugin-unicorn'
 export const pluginUnicorn = interopDefault(_pluginUnicorn)
 
-import * as _pluginVue from 'eslint-plugin-vue'
-export const pluginVue = interopDefault(_pluginVue)
+export { default as pluginVue } from 'eslint-plugin-vue'
+export * as parserVue from 'vue-eslint-parser'
 
 import * as _pluginReact from 'eslint-plugin-react'
 export const pluginReact = interopDefault(_pluginReact)
@@ -36,20 +36,15 @@ export const pluginUnusedImports: any = interopDefault(_pluginUnusedImports)
 export * as pluginYml from 'eslint-plugin-yml'
 export * as parserJsonc from 'jsonc-eslint-parser'
 
-export * as parserVue from 'vue-eslint-parser'
 export * as parserYml from 'yaml-eslint-parser'
 
 import * as _pluginNode from 'eslint-plugin-n'
 export const pluginNode = interopDefault(_pluginNode)
 
-import * as _pluginPrettier from 'eslint-plugin-prettier'
-export const pluginPrettier: any = interopDefault(_pluginPrettier)
+export { default as pluginPrettier } from 'eslint-plugin-prettier'
+export { default as pluginPrettierRecommended } from 'eslint-plugin-prettier/recommended'
 
-import * as _configPrettier from 'eslint-config-prettier'
-export const configPrettier: any = interopDefault(_configPrettier)
-
-import tseslint from 'typescript-eslint'
-export { tseslint }
+export { default as tseslint } from 'typescript-eslint'
 
 import * as _pluginAstro from 'eslint-plugin-astro'
 export const pluginAstro = interopDefault(_pluginAstro)

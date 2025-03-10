@@ -3,7 +3,7 @@ import globals from 'globals'
 import { isInEditor } from '../env'
 import { pluginUnusedImports } from '../plugins'
 
-export const javascript: Linter.Config[] = [
+export const javascript = (): Linter.Config[] => [
   {
     languageOptions: {
       globals: {

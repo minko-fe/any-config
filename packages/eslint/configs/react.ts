@@ -2,7 +2,7 @@ import { type Linter } from 'eslint'
 import { GLOB_JSX, GLOB_TSX } from '../globs'
 import { pluginReact, pluginReactHooks } from '../plugins'
 
-export const react: Linter.Config[] = [
+export const react = (): Linter.Config[] => [
   {
     files: [GLOB_JSX, GLOB_TSX],
     languageOptions: {

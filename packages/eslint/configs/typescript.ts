@@ -74,7 +74,7 @@ export const typescriptCore = tseslint.config({
   },
 }) as Linter.Config[]
 
-export const typescript: Linter.Config[] = [
+export const typescript = (): Linter.Config[] => [
   ...typescriptCore,
 
   {

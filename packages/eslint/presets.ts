@@ -34,11 +34,11 @@ import {
 } from './env'
 import logger from './utils/logger'
 
-const presetJavaScript = [...javascript, ...comments, ...imports, ...unicorn, ...node, ...ignores]
+const presetJavaScript = [...javascript(), ...comments(), ...imports(), ...unicorn(), ...node(), ...ignores()]
 
-const presetJsonc = [...jsonc, ...sortPackageJson]
+const presetJsonc = [...jsonc(), ...sortPackageJson()]
 
-const presetTypescript = [...typescript, ...sortTsconfig]
+const presetTypescript = [...typescript(), ...sortTsconfig()]
 
 export async function defineConfig(
   config: Linter.Config | Linter.Config[] = [],
@@ -93,19 +93,19 @@ export async function defineConfig(
   }
   if (enablePrettier) {
     logger.debug('Prettier enabled')
-    configs.push(...prettier)
+    configs.push(...prettier())
   }
   if (enableSortObjects) {
     logger.debug('Sort objects enabled')
-    configs.push(...sortObjects)
+    configs.push(...sortObjects())
   }
   if (enableSortImports) {
     logger.debug('Sort imports enabled')
-    configs.push(...sortImports)
+    configs.push(...sortImports())
   }
   if (enableMarkdown) {
     logger.debug('Markdown enabled')
-    configs.push(...markdown)
+    configs.push(...markdown())
   }
   if (enableJsonc) {
     logger.debug('Jsonc enabled')
@@ -113,15 +113,15 @@ export async function defineConfig(
   }
   if (enableYml) {
     logger.debug('Yml enabled')
-    configs.push(...yml)
+    configs.push(...yml())
   }
   if (enableReact) {
     logger.debug('React enabled')
-    configs.push(...react)
+    configs.push(...react())
   }
   if (enableVue) {
     logger.debug('Vue enabled')
-    configs.push(...vue)
+    configs.push(...vue())
   }
   if (enableAstro) {
     logger.debug('Astro enabled')

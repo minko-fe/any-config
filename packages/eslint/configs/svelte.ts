@@ -1,8 +1,21 @@
 import { type Linter } from 'eslint'
-import { interopDefault } from '../utils'
+import { GLOB_SVELTE } from '../globs'
+import { tseslint } from '../plugins'
 
 export async function asyncSvelte(): Promise<Linter.Config[]> {
   // @ts-ignore
-  const eslintPluginSvelte = interopDefault(await import('eslint-plugin-svelte'))
-  return [...eslintPluginSvelte.configs['flat/recommended']]
+  const eslintPluginSvelte = await import('eslint-plugin-svelte')
+  return [
+    ...eslintPluginSvelte.configs.recommended,
+    {
+      files: GLOB_SVELTE,
+      languageOptions: {
+        parserOptions: {
+          extraFileExtensions: ['.svelte'],
+          parser: tseslint.parser,
+          projectService: true,
+        },
+      },
+    },
+  ]
 }

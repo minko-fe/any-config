@@ -6,7 +6,6 @@ module.exports = {
   bracketSpacing: true,
   embeddedLanguageFormatting: 'auto',
   endOfLine: 'auto',
-  htmlWhitespaceSensitivity: 'css',
   jsxSingleQuote: true,
   overrides: [
     {
@@ -64,7 +63,6 @@ module.exports = {
   tabWidth: 2,
   tailwindFunctions: ['tw', 'clsx', 'className', 'tv', 'class'],
   trailingComma: 'all',
-  vueIndentScriptAndStyle: true,
 }
 
 function resolvePeerDependency(name) {
