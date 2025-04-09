@@ -27,7 +27,6 @@ export const sortImports = (): Linter.Config[] => [
             'internal',
             ['parent-type', 'sibling-type', 'index-type'],
             ['parent', 'sibling', 'index'],
-            'side-effect',
             'style',
             'object',
             'unknown',

@@ -1,5 +1,10 @@
 # @minko-fe/eslint-config
 
+## 4.2.2
+### Patch Changes
+
+- update: ignore side effect import sort
+
 ## 4.2.1
 ### Patch Changes
 
