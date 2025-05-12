@@ -1,5 +1,10 @@
 # @minko-fe/commitlint-config
 
+## 2.1.3
+### Patch Changes
+
+- upgrade deps
+
 ## 2.1.2
 ### Patch Changes
 

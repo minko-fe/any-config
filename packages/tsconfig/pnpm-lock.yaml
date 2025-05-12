@@ -22,8 +22,8 @@ importers:
         specifier: ^2.0.3
         version: 2.0.3
       '@tsconfig/vite-react':
-        specifier: ^3.0.2
-        version: 3.0.2
+        specifier: ^3.4.0
+        version: 3.4.0
 
 packages:
 
@@ -36,8 +36,8 @@ packages:
   '@tsconfig/nuxt@2.0.3':
     resolution: {integrity: sha512-LmDm9hZ5FnvkcexWRyLqQaAtiAazYS+IqB7fncnkbbhff9mEJtZrUXABJM/+8uwTwt5Vnub6elabz3liRjk79A==}
 
-  '@tsconfig/vite-react@3.0.2':
-    resolution: {integrity: sha512-AFynAtE1Un3Rko20Ghe2mVC/QWD4rStJ2PnyIZU2kzC4UyWpf1YhAEY87GojH/XPZCY8Mdt27gsYyy+6l6HV+w==}
+  '@tsconfig/vite-react@3.4.0':
+    resolution: {integrity: sha512-NxS7WJayciLI+UnCgEqdBfQrZebvVNTSEj5EnaitwThL7iAso5G8wx18B/6yypCFGnyu8p6IMpKWu6JklOX3KA==}
 
   typescript@5.3.3:
     resolution: {integrity: sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==}
@@ -52,6 +52,6 @@ snapshots:
 
   '@tsconfig/nuxt@2.0.3': {}
 
-  '@tsconfig/vite-react@3.0.2': {}
+  '@tsconfig/vite-react@3.4.0': {}
 
   typescript@5.3.3: {}

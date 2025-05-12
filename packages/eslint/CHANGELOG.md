@@ -1,5 +1,12 @@
 # @minko-fe/eslint-config
 
+## 4.2.3
+### Patch Changes
+
+- upgrade deps
+- Updated dependencies
+  - @minko-fe/prettier-config@2.2.6
+
 ## 4.2.2
 ### Patch Changes
 

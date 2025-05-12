@@ -1,6 +1,6 @@
 {
   "name": "@minko-fe/tsconfig",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "tsconfig",
   "license": "MIT",
   "repository": {
@@ -21,6 +21,6 @@
     "@tsconfig/next": "^2.0.3",
     "@tsconfig/node18": "^18.2.4",
     "@tsconfig/nuxt": "^2.0.3",
-    "@tsconfig/vite-react": "^3.0.2"
+    "@tsconfig/vite-react": "^3.4.0"
   }
 }

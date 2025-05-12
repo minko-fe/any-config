@@ -1,5 +1,10 @@
 # @minko-fe/tsconfig
 
+## 2.1.2
+### Patch Changes
+
+- upgrade deps
+
 ## 2.1.1
 ### Patch Changes
 
